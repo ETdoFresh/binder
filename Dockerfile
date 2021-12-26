@@ -72,9 +72,6 @@ RUN echo "\
   </configuration>\
   " > ${HOME}/NuGet.config
 
-RUN chown -R ${NB_UID} ${HOME}
-USER ${USER}
-
 #Install nteract 
 RUN pip install nteract_on_jupyter
 
@@ -92,6 +89,9 @@ ENV DOTNET_INTERACTIVE_CLI_TELEMETRY_OPTOUT=false
 
 # Copy notebooks
 COPY ./Notebooks/ ${HOME}/Notebooks/
+
+RUN chown -R ${NB_UID} ${HOME}
+USER ${USER}
 
 # Set root to Notebooks
 WORKDIR ${HOME}/Notebooks/
