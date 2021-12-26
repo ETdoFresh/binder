@@ -1,0 +1,2 @@
+cd Notebooks
+jupyter-lab

@@ -91,7 +91,7 @@ RUN dotnet interactive jupyter install
 ENV DOTNET_INTERACTIVE_CLI_TELEMETRY_OPTOUT=false
 
 # Copy notebooks
-COPY ./ ${HOME}/Notebooks/
+COPY ./Notebooks/ ${HOME}/Notebooks/
 
 # Set root to Notebooks
 WORKDIR ${HOME}/Notebooks/
