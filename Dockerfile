@@ -52,9 +52,6 @@ RUN dotnet_sdk_version=6.0.100 \
   # Trigger first run experience by running arbitrary cmd
   && dotnet help
 
-# Copy notebooks
-# COPY ./Notebooks/ ${HOME}/Notebooks/
-
 # Add package sources
 RUN echo "\
   <configuration>\
@@ -92,6 +89,9 @@ RUN dotnet interactive jupyter install
 
 # Enable telemetry once we install jupyter for the image
 ENV DOTNET_INTERACTIVE_CLI_TELEMETRY_OPTOUT=false
+
+# Copy notebooks
+COPY ./Notebooks/ ${HOME}/Notebooks/
 
 # Set root to Notebooks
 WORKDIR ${HOME}/Notebooks/
