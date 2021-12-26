@@ -2,7 +2,7 @@ FROM jupyter/base-notebook:latest
 
 # Install .NET CLI dependencies
 
-ARG NB_USER=jovyan
+ARG NB_USER=etdofresh
 ARG NB_UID=1000
 ENV USER ${NB_USER}
 ENV NB_UID ${NB_UID}
@@ -91,7 +91,7 @@ RUN dotnet interactive jupyter install
 ENV DOTNET_INTERACTIVE_CLI_TELEMETRY_OPTOUT=false
 
 # Copy notebooks
-# COPY ./Notebooks/ ${HOME}/Notebooks/
+COPY ./ ${HOME}/Notebooks/
 
 # Set root to Notebooks
 WORKDIR ${HOME}/Notebooks/
